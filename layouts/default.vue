@@ -41,4 +41,14 @@ body {
   max-width: 1600px;
   width: 100%;
 }
+@media (max-width: 360px) {
+  .content {
+    width: 360px!important;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    max-width: 768px!important;
+  }
+}
 </style>

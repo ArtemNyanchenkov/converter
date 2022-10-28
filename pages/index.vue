@@ -5,12 +5,12 @@
         <div class="calculator_left">
           <div class="inputs">
             <div class=" inpt_div" >
-              <label>Валюта 1 : {{getValute.EUR}}</label>
+              <label>Валюта 1 : {{getValute.EUR?.Name}}</label>
               <input  v-model="euroPrice" type="text" placeholder="Введите название или код">
             </div>
 
             <div class=" inpt_div" >
-              <label>Валюта 2: {{getValute.USD}}</label>
+              <label>Валюта 2: {{getValute.USD?.Name}}</label>
               <input v-model="usdPrice"  type="text" placeholder="Введите название или код">
             </div>
 
@@ -25,8 +25,8 @@
           </div>
         </div>
         <div class="calculator_right">
-          <h3 class="right_head">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor:</h3>
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
+          <div class="right_head">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor:</div>
+          <div style="" class="right_container">
             <ul class="right_ul">
               <li class="right_li">incididunt ut labore et dolore magna aliqua</li>
               <li class="right_li">incididunt ut labore et</li>
@@ -45,15 +45,21 @@
           </div>
         </div>
         <div class="contacts">
-          <div style="display: flex; flex-direction: column; flex-wrap: wrap">
+          <div style="display: flex; flex-direction: column" class="contacts_text_block">
             <div class="help">Нужна помощь?<br>
               Мы поможем! Просто свяжитесь с нами.</div>
-            <br>
+
             <div class="help_text">Наши специалисты с радостью ответят на все ваши вопросы и дадут профессиональную консультацию по товарам.</div>
           </div>
+          <div class="contacts_info">
+            <a class="links_to telefon" href="tel:8 (800) 888-90-28" style="margin-bottom: 35px">8 (800) 888-90-28 </a>
+            ИЛИ
+            <a class=" mail" href="mailto:info@example.ru " style="margin-top: 20px">info@example.ru</a>
+          </div>
         </div>
+
       </div>
-        <div>{{getValute}}</div>
+
     </div>
 </template>
 
@@ -75,27 +81,352 @@ export default {
     computed: {
       ...mapGetters(['getValute']),
       euroPrice(){
-        return  this.getValute.EUR.Value * this.cash
+        return  this.getValute.EUR?.Value * this.cash
       },
       usdPrice(){
-        return  this.getValute.USD.Value * this.cash
+        return  this.getValute.USD?.Value * this.cash
       }
     },
   methods:{
-    ...mapActions(['checkToken'])
+    ...mapActions(['getData'])
   },
   created() {
-    this.checkToken()
+    this.getData()
 
   }
 }
 </script>
 
 <style scoped >
+@media (max-width: 1280px){
+  .telefon{
+
+  }
+  .contacts_info{
+    width: 345px!important;
+    font-weight: 400!important;
+    font-size: 18px!important;
+    line-height: 21px!important;
+  }
+  .links_to{
+    font-weight: 500!important;
+    font-size: 40px!important;
+    line-height: 46px!important;
+  }
+  .mail{
+    font-weight: 400!important;
+    font-size: 24px!important;
+    line-height: 28px!important;
+  }
+  .calclHeader{
+    font-weight: 500!important;
+    font-size: 26px!important;
+    line-height: 30px!important;
+  }
+  .calculator_main{
+    max-width: 1280px!important;
+  }
+  .inpt_div label{
+    font-weight: 500!important;
+    font-size: 14px!important;
+    line-height: 16px!important;
+  }
+  .inpt_div input{
+    width: 561px!important;
+    height: 50px!important;
+  }
+  .calculator_right{
+    width: 570px!important;
+    height: 375px!important;
+  }
+  .right_head{
+    font-weight: 500!important;
+    font-size: 15px!important;
+    line-height: 20px!important;
+  }
+  .right_li{
+    font-weight: 400!important;
+    font-size: 14px!important;
+    line-height: 18px!important;
+  }
+  .right_foto{
+    width: 245px!important;
+    height: 240px!important;
+  }
+  .manyfoto{
+    width: 116px!important;
+    height: 116px!important;
+  }
+  .right_container{
+    flex-wrap: nowrap!important;
+  }
+  .contacts{
+    width: 1170px!important;
+    height: 211px!important;
+    padding: 40px 100px 35px 30px!important;
+  }
+  .mail{
+    font-weight: 400 !important;
+    font-size: 24px !important;
+    line-height: 28px !important;
+    letter-spacing: 1px !important;
+  }
+  .help{
+    font-weight: 500!important;
+    font-size: 29px!important;
+    line-height: 36px!important;
+    width: 608px!important;
+    height: 52px!important;
+  }
+  .help_text{
+    width: 467px!important;
+    height: 25px!important;
+    font-weight: 400!important;
+    font-size: 13px!important;
+    line-height: 18px!important;
+  }
+}
+@media (max-width: 768px){
+  .order_text{
+    font-weight: 700!important;
+    font-size: 16px!important;
+    line-height: 140%!important;
+    margin-left: 20px!important;
+  }
+  .contacts_info{
+    font-weight: 400!important;
+    font-size: 12px!important;
+    line-height: 14px!important;
+  }
+  .telefon{
+    font-weight: 500!important;
+    font-size: 24px!important;
+    line-height: 28px!important;
+    margin-bottom: 15px!important;
+  }
+  .mail{
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    line-height: 23px !important;
+    letter-spacing: 1px !important;
+    margin-top: 5px!important;
+  }
+  .order{
+    width: 336px!important;
+    min-height: 108px!important;
+  }
+  .help{
+    width: 352px!important;
+    font-weight: 500!important;
+    font-size: 18px!important;
+    line-height: 24px!important;
+  }
+  .help_text{
+    font-weight: 400!important;
+    font-size: 10px!important;
+    line-height: 12px!important;
+    width: 352px!important;
+    margin-top: 5px!important;
+  }
+  .contacts{
+    width: 707px!important;
+    height: 127px!important;
+    box-sizing: border-box;
+    padding: 33px 68px 18px 19px!important;
+  }
+  .calclHeader{
+    font-weight: 500!important;
+    font-size: 26px!important;
+    line-height: 30px!important;
+  }
+  .calculator_main{
+    max-width: 768px!important;
+  }
+  .inpt_div label{
+    font-weight: 500!important;
+    font-size: 14px!important;
+    line-height: 16px!important;
+  }
+  .inpt_div input{
+    width: 337px!important;
+    height: 46px!important;
+    box-sizing: border-box;
+  }
+  .calculator_right{
+    width: 344px!important;
+    height: 354px!important;
+  }
+  .right_head{
+    font-weight: 500!important;
+    font-size: 13px!important;
+    line-height: 18px!important;
+  }
+  .right_li{
+    font-weight: 400!important;
+    font-size: 13px!important;
+    line-height: 15px!important;
+  }
+  .right_foto{
+    width: 86px!important;
+    height: 260px!important;
+  }
+  .manyfoto{
+    width: 86px!important;
+    height: 58px!important;
+  }
+  .right_container{
+    flex-wrap: nowrap!important;
+
+  }
+  .contacts_text_block{
+    width: 384px!important;
+    flex-wrap: nowrap!important;
+  }
+}
+@media (max-width: 360px){
+  .order_text{
+    font-weight: 700!important;
+    font-size: 16px!important;
+    line-height: 140%!important;
+    margin-left: 20px!important;
+  }
+  .contacts_info{
+    font-weight: 400!important;
+    font-size: 12px!important;
+    line-height: 14px!important;
+  }
+  .telefon{
+    font-weight: 500!important;
+    font-size: 26px!important;
+    line-height: 30px!important;
+    margin-top: 30px!important;
+    margin-bottom: 15px!important;
+  }
+  .mail{
+    font-weight: 400!important;
+    font-size: 18px!important;
+    line-height: 21px!important;
+    letter-spacing: 1px !important;
+    margin-top: 5px!important;
+  }
+  .order{
+    width: 336px!important;
+    min-height: 82px!important;
+  }
+  .help{
+    width: 329px!important;
+    font-weight: 700!important;
+    font-size: 16px!important;
+    line-height: 24px!important;
+    text-align: center;
+  }
+  .help_text{
+    font-weight: 400!important;
+    font-size: 12px!important;
+    line-height: 14px!important;
+    width: 329px!important;
+    margin-top: 5px!important;
+    text-align: center;
+  }
+  .contacts{
+    width: 360px!important;
+    height: 237px!important;
+    box-sizing: border-box;
+    padding: 26px 15px 20px 15px!important;
+    margin-top: 20px!important;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    border-radius: 0px!important;
+  }
+  .calclHeader{
+    font-weight: 700!important;
+    font-size: 20px!important;
+    line-height: 140%!important;
+    width: 315px!important;
+  }
+  .calculator_main{
+    max-width: 330px!important;
+  }
+  .inpt_div label{
+    font-weight: 500!important;
+    font-size: 14px!important;
+    line-height: 16px!important;
+  }
+  .inpt_div input{
+    width: 330px!important;
+    height: 46px!important;
+    box-sizing: border-box;
+  }
+  .calculator_right{
+    width: 330px!important;
+    height: 387px!important;
+    padding: 25px 15px 15px 15px !important;
+    margin-top: 15px!important;
+  }
+  .right_head{
+    font-weight: 500!important;
+    font-size: 13px!important;
+    line-height: 18px!important;
+  }
+  .right_li{
+    font-weight: 400!important;
+    font-size: 14px!important;
+    line-height: 18px!important;
+  }
+  .right_foto{
+    width: 300px!important;
+    height: 48px!important;
+  }
+  .manyfoto{
+    width: 69px!important;
+    height: 46px!important;
+  }
+  .right_container{
+    flex-wrap: wrap!important;
+  }
+  .contacts_text_block{
+    width: 384px!important;
+    flex-wrap: nowrap!important;
+  }
+}
+.mail{
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #093078;
+  font-family: 'Roboto';
+  font-style: normal;
+}
+.contacts_text_block{
+  width: 770px;
+}
+.contacts_info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  color: #404456;
+}
+.links_to{
+  text-decoration: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 46px;
+  color: #093078;
+}
+.right_container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between
+}
 .help{
   width: 775px;
-  height: 67px;
-
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -116,7 +447,10 @@ export default {
 
 }
 .contacts{
+  display: flex;
+  box-sizing: border-box;
   max-width: 1440px;
+  height: 260px;
   flex-grow: 1;
   background: #EEF5FF;
   border-radius: 16px;
@@ -174,6 +508,7 @@ export default {
   font-size: 14px;
   line-height: 28px;
   color: #A0A3BD;
+  box-sizing: border-box;
 }
 .inpt_div input:focus{
   border: 1px solid #DFDFDF;
@@ -195,7 +530,7 @@ export default {
 }
 .calculator_right{
   max-width: 705px !important;
-
+  box-sizing: border-box;
   min-height: 465px;
   background: #EEF5FF;
   border: 1px solid #DFE1F0;
@@ -206,15 +541,7 @@ export default {
   flex-wrap: wrap;
   padding: 40px 30px;
 }
-.calclHeader{
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 34px;
-  line-height: 40px;
-  color: #0F4471;
-  width: 470px;
-}
+
 .right_head{
   font-family: 'Roboto';
   font-style: normal;

@@ -6,3 +6,40 @@
     width: 100%;
     flex-wrap: wrap;
 }
+.calclHeader{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 40px;
+    color: #0F4471;
+    width: 470px;
+}
+@media (max-width: 360px) {
+    .main_body {
+        max-width: 360px!important;
+        box-sizing: border-box;
+        padding: 30px 20px 140px 10px!important;
+    }
+}
+@media (max-width: 1280px) {
+    .main_body {
+        max-width: 1280px!important;
+        box-sizing: border-box;
+        padding: 35px 50px 60px 50px!important;
+    }
+}
+@media (max-width: 768px) {
+    .main_body {
+        max-width: 768px!important;
+        box-sizing: border-box;
+        padding: 20px 30px 60px 30px!important;
+    }
+}
+@media (max-width: 360px) {
+    .main_body {
+        max-width: 30px!important;
+        box-sizing: border-box;
+        padding: 20px 15px 70px 15px!important;
+    }
+}

@@ -12,7 +12,25 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 1280px) {
+  .navbar_container {
+    width: 1280px!important;
+  }
+}
+@media (max-width: 768px) {
+  .navbar_container {
+    width: 768px!important;
+  }
+}
+@media (max-width: 360px) {
+  .navbar_container {
+    width: 360px!important;
+    padding-left: 30px!important;
+  }
+}
+
 .navbar_container {
+  box-sizing: border-box;
   width: 100%;
   background: #F8F8F8;
   height: 45px;
