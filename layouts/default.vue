@@ -10,9 +10,16 @@
 
 <script>
 import navbar from "~/components/navbar";
+import {mapActions} from "vuex";
 export default {
 
-  components:{navbar}
+  components:{navbar},
+  methods:{
+    ...mapActions(["getData"])
+  },
+  mounted() {
+    this.getData()
+  }
 }
 </script>
 

@@ -13,11 +13,11 @@
           <path d="M33.75 35.9159C33.75 36.3174 33.8467 36.713 34.032 37.0691C34.2174 37.4252 34.4858 37.7315 34.8146 37.9618C34.884 37.9059 34.9552 37.852 35.0302 37.8016C35.4811 37.4974 36.0036 37.3161 36.546 37.2757C37.0884 37.2352 37.6319 37.337 38.123 37.5709C38.391 37.2678 38.5814 36.9041 38.6779 36.5111C38.7744 36.1181 38.774 35.7075 38.6768 35.3147C38.5797 34.9219 38.3886 34.5585 38.12 34.2558C37.8514 33.9531 37.5134 33.7201 37.1349 33.5769C36.7564 33.4337 36.3488 33.3844 35.9471 33.4335C35.5455 33.4825 35.1617 33.6283 34.8288 33.8583C34.4958 34.0884 34.2237 34.3958 34.0358 34.7542C33.8479 35.1126 33.7499 35.5113 33.75 35.9159Z" :fill="(pos+1)%2 ===0 ? 'red': '#0F4471'"/>
         </svg>
         <img src="../assets/images/mobile_money.svg" alt="" width="50" height="50">
-        <div class="char_code">{{item?.CharCode}}</div>
-        <div class="char_name">{{item?.Name}}</div>
+        <div class="char_code">{{item.CharCode}}</div>
+        <div class="char_name">{{item.Name}}</div>
         <ul class="right_ul">
           <li class="right_li">Номинал: 1</li>
-          <li class="right_li">Курс: {{ item?.Value }}</li>
+          <li class="right_li">Курс: {{ item.Value }}</li>
         </ul>
       </div>
 
@@ -31,19 +31,16 @@
 </template>
 
 <script>
-import {mapActions,mapGetters} from "vuex";
+import {mapGetters} from "vuex";
 export default {
   name: "rubles",
   computed: {
     ...mapGetters(['getValute'])
   },
   methods:{
-    ...mapActions(['getData'])
-  },
-  created() {
-    this.getData()
 
-  }
+  },
+
 }
 </script>
 

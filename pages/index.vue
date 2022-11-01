@@ -55,6 +55,7 @@
             <a class="links_to telefon" href="tel:8 (800) 888-90-28" style="margin-bottom: 35px">8 (800) 888-90-28 </a>
             ИЛИ
             <a class=" mail" href="mailto:info@example.ru " style="margin-top: 20px">info@example.ru</a>
+
           </div>
         </div>
 
@@ -64,7 +65,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+import {mapGetters} from "vuex";
 export default {
     data() {
       return{
@@ -74,7 +75,8 @@ export default {
           three: require(`../assets/images/img-3test.png`),
           four: require(`../assets/images/img-4.png`),
         },
-        cash: 0
+        cash: 0,
+
       }
     },
 
@@ -85,13 +87,12 @@ export default {
       },
       usdPrice(){
         return  this.getValute.USD?.Value * this.cash
-      }
+      },
     },
   methods:{
-    ...mapActions(['getData'])
+
   },
-  created() {
-    this.getData()
+  mounted() {
 
   }
 }
